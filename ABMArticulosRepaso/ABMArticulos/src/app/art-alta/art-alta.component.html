@@ -1,0 +1,93 @@
+<div class="container">
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Agregar Articulo</h5>
+
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            (click)="cerrarModal()"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nombre"
+                name="nombre"
+                [(ngModel)]="articulo.nombre"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="precio" class="form-label">Precio:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="precio"
+                name="precio"
+                [(ngModel)]="articulo.precio"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="descripcion" class="form-label">Stock:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="stock"
+                name="stock"
+                [(ngModel)]="articulo.stock"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="categoria" class="form-label">Categoría:</label>
+              <select
+                class="form-select"
+                id="categoria"
+                name="categoria"
+                [(ngModel)]="articulo.categoriaId"
+              >
+                <option
+                  *ngFor="let item of categorias"
+                  [ngValue]="item.id"
+                  selected
+                >
+                  {{ item.nombre }}
+                </option>
+              </select>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              (click)="cerrarSalvar()"
+            >
+              Agregar
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="cerrarModal()"
+              style="margin-left: 10px"
+            >
+              Cancelar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
